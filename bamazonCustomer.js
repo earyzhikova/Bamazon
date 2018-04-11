@@ -20,14 +20,21 @@ connection.connect(function(err) {
       if (err) throw err;
       console.table(results);
       itemToPurchase();
-    });
+     });
 
 // prompt with two messages: ID of the product they would like to buy & how many units they would like to buy
     var itemToPurchase = function () {
-      console.log("string");
+      
         inquirer.prompt([{
         name: 'id',
-        type: 'input',
+        type: 'input', 
+        choices: function(){
+          var chosenArray = [];
+        for (var i = 0; i < results.length; i++) {
+          chosenArray.push(results[i].item_name);
+        }
+        return chosenArray;
+        },
         message: 'What is the ID of the product you would like to buy?', 
         validate: function(value) {
           if (isNaN(value) === false) {
@@ -46,17 +53,12 @@ connection.connect(function(err) {
           return false;
         }
       }]).then(function (answer) {
-        // Ask the database for info about the item
-        
-
-        var chosenItem = [];
-        // for (var i = 0; i < results.length; i++) {
-        //   choiceArray.push(results[i].item_name);
-        // }
+               var chosenItem;
+               for (var i=0; i<results.length; i++) {
           if (results[i].item_id === answer.id) {
             chosenItem = results[i];
-          // return choice.Array;
-          };
+          }
+          }
         connection.query('SELECT product_name, department_name, price, stock_quantity FROM products WHERE ?', {item_id:answer.id}, function(err,results){
 console.log('You would like to buy ' + answer.quantity + ' ' + chosenItem.product_name + ' ' + chosenItem.department_name + '$' + chosenItem.price + ' each');
         });
