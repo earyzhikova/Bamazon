@@ -7,10 +7,10 @@
 
 ## For Customers
 
-*customers can choosse a product according to product ID and specify quantity
+*customers can choose a product according to product ID and specify quantity
 
 ![GitHub Logo](/Screenshot_1.png)
 
-*customers will get a message if there is insufficint quantity in database
+*customers will get a message if there is not enough items in database
 
 ![GitHub Logo](/Screenshot_2.png)
