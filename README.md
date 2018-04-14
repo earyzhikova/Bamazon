@@ -9,8 +9,8 @@
 
 *customers can choosse a product according to product ID and specify quantity
 
-![Screenshot_1.png]
+![GitHub Logo](/Screenshot_1.png)
 
 *customers will get a message if there is insufficint quantity in database
 
-![Screenshot_2.png]
+![GitHub Logo](/Screenshot_2.png)
