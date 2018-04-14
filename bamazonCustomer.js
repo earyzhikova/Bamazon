@@ -89,3 +89,5 @@ var itemToPurchase = function () {
         console.log("Your total is $ " + itemsTotal + ".");
         process.exit();
       });
+    });
+  }
